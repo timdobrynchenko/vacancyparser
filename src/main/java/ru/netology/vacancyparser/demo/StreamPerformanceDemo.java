@@ -102,7 +102,7 @@ public class StreamPerformanceDemo {
         long median = times[MEASURED_RUNS / 2];
         System.out.printf("%-34s %12.2f %12.2f%n", name, first / 1_000_000.0, median / 1_000_000.0);
     }
-    
+
     private static long timeOnce(Supplier<Object> operation) {
         long start = System.nanoTime();
         Object result = operation.get();
