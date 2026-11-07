@@ -1,0 +1,42 @@
+### Собрать вакансии по ссылкам
+POST http://localhost:8080/api/vacancies/collect
+Content-Type: application/json
+
+{
+  "urls": [
+    "https://hh.ru/vacancy/128072467",
+    "https://hh.ru/vacancy/136231014",
+    "https://example.com/not-a-vacancy"
+  ]
+}
+
+### Собрать первые 10 вакансий из поиска hh.ru (Санкт-Петербург)
+POST http://localhost:8080/api/vacancies/search
+Content-Type: application/json
+
+{
+  "text": "java",
+  "area": 2,
+  "limit": 10
+}
+
+### Все вакансии, новые сверху
+GET http://localhost:8080/answer
+
+### Сортировка по зарплате, первые 5
+GET http://localhost:8080/answer?sort=salary&order=desc&page=0&size=5
+
+### Фильтр по городу и зарплате
+GET http://localhost:8080/answer?city=Санкт-Петербург&minSalary=150000
+
+### Одна вакансия
+GET http://localhost:8080/answer/128072467
+
+### Последние задачи
+GET http://localhost:8080/api/tasks
+
+### Задачи с ошибкой
+GET http://localhost:8080/api/tasks?status=ERROR
+
+### Состояние пула
+GET http://localhost:8080/api/status
